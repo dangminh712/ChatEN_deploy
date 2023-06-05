@@ -8,7 +8,7 @@ const Login = () => {
       
   const username = useRef<any>("");
   const password = useRef<any>("");
-  const url = process.env.URL_APP;
+  const url = "https://ndminh123.bsite.net/api/";
 
   const handleClickSignIn = async () => {
     const login: login = {

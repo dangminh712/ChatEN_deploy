@@ -10,7 +10,7 @@ const SignUpForm = () => {
     const [isCorrect,setCorrect]= useState<boolean>(true);
     const [eyePass,setEyePass]= useState<boolean>(false); 
     const [eyeRepass,setEyeRepass]= useState<boolean>(false); 
-    const url = process.env.URL_APP;
+    const url = "https://ndminh123.bsite.net/api/";
 
     const handleClickSignUp = async () => {
         if(password.current.value===repassword.current.value){

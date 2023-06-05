@@ -5,7 +5,7 @@ export default async function getDictionary(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const apiKey = process.env.DIC_API_KEY
+  const apiKey = "WBBcwnwQpV89"
   const url = `https://api.tracau.vn/${apiKey}/s/'${req.body}'/en`
   console.log(url)
   try {

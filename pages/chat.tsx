@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState,useEffect } from "react";
 import { BsFillSendFill } from "react-icons/bs";
 import { AiOutlineDelete } from "react-icons/ai";
 import { datachat } from "../types/typechat";
@@ -16,15 +16,15 @@ type Props = {
 function Chatbot(props: Props) {
 
   
-  const apiURL = process.env.URL_APP;
+  const apiURL = "https://ndminh123.bsite.net/api/";
   const [chatData, setChatData] = useState<datachat[]>([]);
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
   const chatcontent = useRef<any>(null);
   const [isLoadingAnswer, setIsLoadingAnswer] = useState<any>(false)
-  if (typeof window == 'undefined') {
-    return;
-  }
 
+  useEffect(()=>{
+    getData()
+  },[])
   const getData = async () => {
     await axios.get(`${apiURL}ChatBot?user=${sessionStorage?.getItem("Login")}`)
       .then((response) => {
@@ -58,7 +58,7 @@ function Chatbot(props: Props) {
       });
 
   }
-getData()
+
   const sendMessage = async (messages: ChatCompletionRequestMessage[]) => {
     try {
       const response = await fetch('/api/createMessage', {

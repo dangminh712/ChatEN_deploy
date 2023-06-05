@@ -6,7 +6,7 @@ import { dataTraCau, favourite, vocabulary } from '@/types/typechat';
 
 function SpeechToText(this: any) {
 
-  const urlApi = process.env.URL_APP
+  const urlApi = "https://ndminh123.bsite.net/api/"
   const [isActive, SetIsActive] = useState<boolean>(true);
   const [reset, setRest] = useState<boolean>(false);
   const [indexWord, setIndexWord] = useState<number>(0);
@@ -51,7 +51,7 @@ function SpeechToText(this: any) {
     await axios.post(`${urlApi}Vocabulary/AddInFavorite?own=${sessionStorage.getItem('Login')}&wordid=${data?.[indexWord]?.Wordid}`).then(()=>{getFavourite()})
   }
   const meanWord = async (index: number) => {
-    await axios.get(`https://api.tracau.vn/${process.env.DIC_API_KEY}/s/'${data[index]?.Word}'/en`).then((result) => {
+    await axios.get(`https://api.tracau.vn/${"WBBcwnwQpV89"}/s/'${data[index]?.Word}'/en`).then((result) => {
       setTraCauValue(() => result.data)
     })
   }
@@ -74,7 +74,7 @@ function SpeechToText(this: any) {
 
   const handleStar = async () => {
     let login = sessionStorage.getItem('Login')
-    if(login ===undefined||login==='false'||login===null) {
+    if(login ===undefined||login==='false'||login===null||login==='') {
       window.location.href='/login'
     };
     await favourite.some(item => item.wordID === data?.[indexWord]?.Wordid) ? deleteFavourite() : addFavourite()

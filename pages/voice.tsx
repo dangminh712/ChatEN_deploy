@@ -10,7 +10,7 @@ import { ChatCompletionRequestMessage } from 'openai'
 function VoiceChat() {
   
   
-  const apiURL = process.env.URL_APP;
+  const apiURL = "https://ndminh123.bsite.net/api/";
   const [chatData, setChatData] = useState<datachat[]>([]);
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
   const [isListening, setIsListening] = useState<any>(false);

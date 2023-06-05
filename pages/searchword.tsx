@@ -15,10 +15,10 @@ function SearchWord() {
     let con = chatcontent.current?.value;
     if(selectedOption.current?.value === 'word'){
       setUserchat(con);
-      await getData(`https://api.tracau.vn/${process.env.DIC_API_KEY}/s/'${con}'/en`)
+      await getData(`https://api.tracau.vn/${"WBBcwnwQpV89"}/s/'${con}'/en`)
     }
     else{
-      await axios.get(`https://api.tracau.vn/${process.env.DIC_API_KEY}/trans/${con}`)
+      await axios.get(`https://api.tracau.vn/${"WBBcwnwQpV89"}/trans/${con}`)
       .then((result)=>{setDataTrans(()=>result.data);
       console.log(dataTrans?.transcripts);
   })
