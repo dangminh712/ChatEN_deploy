@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import { BsFillSendFill } from "react-icons/bs";
 import { AiOutlineDelete } from "react-icons/ai";
 import { datachat } from "../types/typechat";
@@ -14,16 +14,16 @@ type Props = {
 
 
 function Chatbot(props: Props) {
-  if (typeof window == 'undefined') {
-    return;
-  }
+
   
   const apiURL = process.env.URL_APP;
   const [chatData, setChatData] = useState<datachat[]>([]);
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
   const chatcontent = useRef<any>(null);
-  const [isLoadingAnswer, setIsLoadingAnswer] = useState(false)
-
+  const [isLoadingAnswer, setIsLoadingAnswer] = useState<any>(false)
+  if (typeof window == 'undefined') {
+    return;
+  }
 
   const getData = async () => {
     await axios.get(`${apiURL}ChatBot?user=${sessionStorage?.getItem("Login")}`)

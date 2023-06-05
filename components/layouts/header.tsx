@@ -1,19 +1,23 @@
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from 'next/image';
 import Link from "next/link";
 const Header = () => {
-    if (typeof window === 'undefined') {
-        return;
-}
+    
 
     const [login, setLogin] = useState<string | null | undefined>();
     const [username, setUsername] = useState<string | null | undefined>();
+    if (typeof window === 'undefined') {
+        return (
+            <div></div>
+        );
+    }
     const handleLogout = () => {
         sessionStorage.clear()
         window.location.href = '/ '
     }
-     setLogin(() => sessionStorage.getItem("Login"));
+
+    setLogin(() => sessionStorage.getItem("Login"));
     setUsername(() => sessionStorage.getItem("Username"));
 
     return (
@@ -24,7 +28,7 @@ const Header = () => {
                     <img
                         src="https://cdn-icons-png.flaticon.com/256/25/25694.png"
                         alt="Flaticon Image"
-                        className="h-10 mr-3" 
+                        className="h-10 mr-3"
                     />
                     <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
                 </Link>

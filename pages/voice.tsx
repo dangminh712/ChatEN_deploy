@@ -8,17 +8,42 @@ import { ChatCompletionRequestMessage } from 'openai'
 import MicrophoneButton from "@/components/voice";
 
 function VoiceChat() {
-  if (typeof window == 'undefined') {
-    return
-  }
+  
   
   const apiURL = process.env.URL_APP;
   const [chatData, setChatData] = useState<datachat[]>([]);
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
-  const [isListening, setIsListening] = useState(false);
-  const [recognizedText, setRecognizedText] = useState('');
+  const [isListening, setIsListening] = useState<any>(false);
+  const [recognizedText, setRecognizedText] = useState<any>('');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const [isLoadingAnswer, setIsLoadingAnswer] = useState(false)
+  const [isLoadingAnswer, setIsLoadingAnswer] = useState<any>(false)
+  useEffect(() => {
+    getData();
+    let recognition = new window.webkitSpeechRecognition();
+    const initializeRecognition = () => {
+      recognition.continuous = true;
+      recognition.interimResults = true; // Cho phép nhận dạng tạm thời
+      recognition.lang = 'en-US'; // Thiết lập ngôn ngữ cho nhận dạng giọng nói
+      recognition.onresult = handleRecognitionResult;
+    };
+    const startRecognition = () => {
+      recognition.start();
+    };
+    const stopRecognition = () => {
+      recognition.stop();
+    };
+
+    if (isListening) {
+      initializeRecognition();
+      startRecognition();
+    } else {
+      stopRecognition();
+    }
+
+    return () => {
+      stopRecognition();
+    };
+  }, [isListening,apiURL]);
   const handleRecognitionResult = (event: SpeechRecognitionEvent) => {
     let interimTranscript = '';
     let finalTranscript = '';
@@ -163,33 +188,7 @@ function VoiceChat() {
     utterance.voice = voice || null;
     synth.speak(utterance);
   };
-  useEffect(() => {
-    getData();
-    let recognition = new window.webkitSpeechRecognition();
-    const initializeRecognition = () => {
-      recognition.continuous = true;
-      recognition.interimResults = true; // Cho phép nhận dạng tạm thời
-      recognition.lang = 'en-US'; // Thiết lập ngôn ngữ cho nhận dạng giọng nói
-      recognition.onresult = handleRecognitionResult;
-    };
-    const startRecognition = () => {
-      recognition.start();
-    };
-    const stopRecognition = () => {
-      recognition.stop();
-    };
-
-    if (isListening) {
-      initializeRecognition();
-      startRecognition();
-    } else {
-      stopRecognition();
-    }
-
-    return () => {
-      stopRecognition();
-    };
-  }, [isListening]);
+  
 
 
   return (

@@ -4,14 +4,14 @@ import React, { useRef } from 'react';
 import { BsFacebook, BsGithub, BsGoogle } from 'react-icons/bs';
 
 const Login = () => {
-    if (typeof window == 'undefined') {
-        return
-      }
+   
       
   const username = useRef<any>("");
   const password = useRef<any>("");
   const url = process.env.URL_APP;
-
+  if (typeof window == 'undefined') {
+    return
+  }
   const handleClickSignIn = async () => {
     const login: login = {
       Username: username.current?.value,

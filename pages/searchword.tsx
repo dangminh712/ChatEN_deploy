@@ -1,5 +1,5 @@
 import DicChat from '@/components/dicchat';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import axios from "axios"
 import { dataTraCau, transcriptss } from '@/types/typechat';
 import YouTubeEmbed from '@/components/youtube';

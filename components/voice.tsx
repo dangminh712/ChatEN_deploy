@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function MicrophoneButton() {
-    const [isRecording, setIsRecording] = useState(false);
+    const [isRecording, setIsRecording] = useState<any>(false);
 
 const transcribe = async () => {
   const recognition = new window.webkitSpeechRecognition();

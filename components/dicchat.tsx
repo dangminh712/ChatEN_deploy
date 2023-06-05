@@ -1,6 +1,6 @@
 import React from "react";
-import Link from "next/link";
-import { sentences, transcripts, transcriptss } from "../types/typechat";
+
+import { sentences, transcripts } from "../types/typechat";
 import YouTubeEmbed from "./youtube";
 
 type Props = {

@@ -5,10 +5,7 @@ import axios from 'axios';
 import { dataTraCau, favourite, vocabulary } from '@/types/typechat';
 
 function SpeechToText(this: any) {
-  if (typeof window == 'undefined') {
-    return
-  }
-  
+
   const urlApi = process.env.URL_APP
   const [isActive, SetIsActive] = useState<boolean>(true);
   const [reset, setRest] = useState<boolean>(false);
@@ -17,6 +14,26 @@ function SpeechToText(this: any) {
   const [valueSelect, setValueSelect] = useState<string>('10')
   const [traCauValue, setTraCauValue] = useState<dataTraCau>({} as dataTraCau);
   const [favourite, setFavourite] = useState<favourite[]>([])
+  useEffect(() => {
+    
+    const getWord = async () => {
+      if (valueSelect != 'favourite') {
+        await axios.get(`${urlApi}Vocabulary?amount=${valueSelect}`).then((result) => {
+          getData(() => result.data)
+        })
+      }
+      else{
+        await axios.get(`${urlApi}Vocabulary/Favourite?own=${sessionStorage.getItem("Login")}`).then((result) => {
+          getData(() => result.data)
+        })
+      }
+
+      await axios.get(`${urlApi}Quizz?ID=${sessionStorage.getItem('Login')}`).then((result) => {
+        setFavourite(() => result.data)
+      })
+    }
+    getWord()
+  }, [valueSelect,urlApi])
   const updateActive = async () => {
     await meanWord(indexWord);
     SetIsActive(!isActive)
@@ -26,6 +43,7 @@ function SpeechToText(this: any) {
       setFavourite(() => result.data)
     })
   }
+
   const deleteFavourite = async () => {
     await axios.post(`${urlApi}Vocabulary/DeleteInFavorite?own=${sessionStorage.getItem('Login')}&wordid=${data?.[indexWord]?.Wordid}`).then(()=>{getFavourite()})
   }
@@ -78,25 +96,10 @@ function SpeechToText(this: any) {
     };
     setValueSelect(() => value)
   }
-  useEffect(() => {
-    const getWord = async () => {
-      if (valueSelect != 'favourite') {
-        await axios.get(`${urlApi}Vocabulary?amount=${valueSelect}`).then((result) => {
-          getData(() => result.data)
-        })
-      }
-      else{
-        await axios.get(`${urlApi}Vocabulary/Favourite?own=${sessionStorage.getItem("Login")}`).then((result) => {
-          getData(() => result.data)
-        })
-      }
-
-      await axios.get(`${urlApi}Quizz?ID=${sessionStorage.getItem('Login')}`).then((result) => {
-        setFavourite(() => result.data)
-      })
-    }
-    getWord()
-  }, [valueSelect])
+  if (typeof window == 'undefined') {
+    return
+  }
+  
   return (
     <div className='h-[90vh] w-[100vw] bg-white'>
       <div className='flex justify-end pt-[30px]'>
