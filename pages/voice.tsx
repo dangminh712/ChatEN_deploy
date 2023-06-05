@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
-import { BsFillMicFill, BsFillSendFill } from "react-icons/bs";
+import { BsFillMicFill } from "react-icons/bs";
 import { AiOutlineDelete } from "react-icons/ai";
 import { datachat } from "../types/typechat";
 import RowChat from "../components/chat";
 import axios from "axios";
 import { ChatCompletionRequestMessage } from 'openai'
-import MicrophoneButton from "@/components/voice";
+
 
 function VoiceChat() {
   

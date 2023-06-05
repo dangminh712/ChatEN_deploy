@@ -1,6 +1,6 @@
 import { transcripts } from '@/types/typechat';
 import React, {useState } from 'react';
-import { BiSkipNextCircle, BiSkipPreviousCircle, BiReset, BiPlayCircle } from 'react-icons/bi'
+import { BiSkipNextCircle, BiSkipPreviousCircle, BiReset } from 'react-icons/bi'
 
 type Props = {
     item: transcripts | null | undefined;

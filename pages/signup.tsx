@@ -1,6 +1,5 @@
 import { login } from '@/types/typechat';
 import axios from 'axios';
-import { redirect } from 'next/dist/server/api-utils';
 import React, { useRef, useState } from 'react'
 import { BsFacebook, BsGithub, BsGoogle } from 'react-icons/bs';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';

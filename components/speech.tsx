@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 const SpeechRecognition = () => {
-    const [transcript, setTranscript] = useState('');
-    const [isListening, setIsListening] = useState(false);
+    const [transcript, setTranscript] = useState<any>('');
+    const [isListening, setIsListening] = useState<any>(false);
     let recognition = new window.webkitSpeechRecognition();;
     useEffect(() => {
         if (isListening) {
