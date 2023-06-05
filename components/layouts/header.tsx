@@ -1,23 +1,26 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 const Header = () => {
     
 
     const [login, setLogin] = useState<string | null | undefined>();
     const [username, setUsername] = useState<string | null | undefined>();
-    if (typeof window === 'undefined') {
-        return (
-            <div></div>
-        );
-    }
+   
     const handleLogout = () => {
         sessionStorage.clear()
         window.location.href = '/ '
     }
-
-    setLogin(() => sessionStorage.getItem("Login"));
-    setUsername(() => sessionStorage.getItem("Username"));
+    useEffect(() => {
+        const id = sessionStorage.getItem("Login") || '';
+        const user = sessionStorage.getItem("Username") || '';
+        if (id !== login) {
+          setLogin(id);
+        }
+        if (user !== username) {
+          setUsername(user);
+        }
+      }, []);
 
     return (
         <nav className="w-full bg-white border-gray-200 dark:bg-gray-900 h-[10vh] drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]">
@@ -33,7 +36,7 @@ const Header = () => {
                 </Link>
                 <div className="flex items-center md:order-2">
 
-                    {(login === undefined || login === 'false' || login === null) ? (
+                    {(login === undefined || login === 'false' || login === null||login==='') ? (
                         <div>
                             <Link href="/login" className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 hover:border-[2px] border-[2px] hover:border-blue-500">Login</Link>
                             <Link href="/signup" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign Up</Link>
