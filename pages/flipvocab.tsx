@@ -96,10 +96,7 @@ function SpeechToText(this: any) {
     };
     setValueSelect(() => value)
   }
-  if (typeof window == 'undefined') {
-    return
-  }
-  
+
   return (
     <div className='h-[90vh] w-[100vw] bg-white'>
       <div className='flex justify-end pt-[30px]'>

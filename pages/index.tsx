@@ -18,7 +18,7 @@ export default function Home() {
             <div className="grid grid-cols-3 gap-4 mt-[20px]">
               <Link href= '/chat' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
                 <div className='flex items-center h-[25vh]'>
-                <img title='img' src='https://cdn-icons-png.flaticon.com/512/1698/1698535.png' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] ' alt={''}>
+                <img title='img' src='https://cdn-icons-png.flaticon.com/512/1698/1698535.png' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] shadow-2xl' alt={''}>
                     
                    </img>
                   <div className='flex self-start my-[2.5vh] mx-[4px]'>
@@ -31,7 +31,7 @@ export default function Home() {
               </Link>
               <Link href= '/voice' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
                 <div className='flex items-center h-[25vh]'>
-                <img title='img' src='/voice.jpg' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] ' alt={''}>
+                <img title='img' src='https://th.bing.com/th/id/OIP.fZCIvd8VIlwn8fn5KozbfAHaH_?pid=ImgDet&rs=1' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] shadow-2xl' alt={''}>
                     
                    </img>
                   <div className='flex self-start my-[2.5vh] mx-[4px]'>
@@ -44,7 +44,7 @@ export default function Home() {
               </Link>
               <Link href= '/searchword' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
                 <div className='flex items-center h-[25vh]'>
-                  <img title='img' src='https://cdn-icons-png.flaticon.com/512/1698/1698535.png' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] ' alt={''}>
+                  <img title='img' src='https://th.bing.com/th/id/R.8e861e17b705a6c8bbfa019b57757062?rik=2RPdPLvDvLEhUg&pid=ImgRaw&r=0' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] shadow-2xl' alt={''}>
                     
                  </img>
                   <div className='flex self-start my-[2.5vh] mx-[4px]'>
@@ -57,7 +57,7 @@ export default function Home() {
               </Link>
               <Link href= '/flipvocab' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
                 <div className='flex items-center h-[25vh]'>
-                  <img title='sg' src='https://images.squarespace-cdn.com/content/v1/5d577d5ad3fea90001736e05/1618901038734-D9X7HTDS83C9QT6ILWRG/03-VOCAB-MATCH-B.jpg?format=1500w' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] ' alt={''}>
+                  <img title='sg' src='https://images.squarespace-cdn.com/content/v1/5d577d5ad3fea90001736e05/1618901038734-D9X7HTDS83C9QT6ILWRG/03-VOCAB-MATCH-B.jpg?format=1500w' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] shadow-2xl' alt={''}>
                  </img>
                   <div className='flex self-start my-[2.5vh] mx-[4px]'>
                     <div>
@@ -69,24 +69,24 @@ export default function Home() {
               </Link>
               <Link href= '/login' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
                 <div className='flex items-center h-[25vh]'>
-                  <img title='sg' src='./login.jpg' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] ' alt={''}>
+                  <img title='sg' src='https://img.freepik.com/free-vector/tablet-login-concept-illustration_114360-7883.jpg?w=2000' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] shadow-2xl' alt={''}>
                  </img>
                   <div className='flex self-start my-[2.5vh] mx-[4px]'>
                     <div>
-                    <p className='text-[18px] font-[600]'> FlipVocab </p>
-                    <p className='text-[13px] ml-[5px]'> Master vocabulary through interactive flashcards. </p>
+                    <p className='text-[18px] font-[600]'> Login </p>
+                    <p className='text-[13px] ml-[5px]'> Unlock Your Brain </p>
                     </div>
                   </div>
                 </div>
               </Link>
               <Link href= '/signup' className='h-[25vh] m-[5px] rounded-[20px] my-[30px] bg-[#FFFFFF] border-[1px] border-[#b2b0b0] shadow-md'>
                 <div className='flex items-center h-[25vh]'>
-                  <img title='sg' src='./signup.jpg' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] ' alt={''}>
+                  <img title='sg' src='https://cdn-icons-png.flaticon.com/512/5455/5455873.png' className=' mx-[20px] h-[20vh] w-[20vh] rounded-[20px] shadow-2xl' alt={''}>
                  </img>
                   <div className='flex self-start my-[2.5vh] mx-[4px]'>
                     <div>
-                    <p className='text-[18px] font-[600]'> FlipVocab </p>
-                    <p className='text-[13px] ml-[5px]'> Master vocabulary through interactive flashcards. </p>
+                    <p className='text-[18px] font-[600]'> Sign Up </p>
+                    <p className='text-[13px] ml-[5px]'> You Are Welcomes </p>
                     </div>
                   </div>
                 </div>
