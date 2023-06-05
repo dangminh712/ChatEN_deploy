@@ -22,7 +22,7 @@ const DicChat = (props: Props) => {
               <>
                 {props.item?.map((item, key) => {
             return (
-              <div className="chat__conversation-board__message__bubble"> <span>{item.fields?.vi}
+              <div key={key} className="chat__conversation-board__message__bubble"> <span>{item.fields?.vi}
                 <br /> <div className="text-[white]" dangerouslySetInnerHTML={{ __html: item.fields?.en }}></div> </span></div>
             );
           })}

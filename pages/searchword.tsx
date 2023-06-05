@@ -33,9 +33,6 @@ function SearchWord() {
     })
   }
   
-  useEffect(() => {
-    // getData()
-  }, []);
   return (
     <div className="mybody">
       <div className="--darktheme" id="chat">

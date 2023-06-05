@@ -14,6 +14,10 @@ type Props = {
 
 
 function Chatbot(props: Props) {
+  if (typeof window == 'undefined') {
+    return;
+  }
+  
   const apiURL = process.env.URL_APP;
   const [chatData, setChatData] = useState<datachat[]>([]);
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
@@ -54,9 +58,7 @@ function Chatbot(props: Props) {
       });
 
   }
-  useEffect(() => {
-    getData();
-  }, []);
+getData()
   const sendMessage = async (messages: ChatCompletionRequestMessage[]) => {
     try {
       const response = await fetch('/api/createMessage', {

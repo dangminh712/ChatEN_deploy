@@ -8,6 +8,10 @@ import { ChatCompletionRequestMessage } from 'openai'
 import MicrophoneButton from "@/components/voice";
 
 function VoiceChat() {
+  if (typeof window == 'undefined') {
+    return
+  }
+  
   const apiURL = process.env.URL_APP;
   const [chatData, setChatData] = useState<datachat[]>([]);
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
@@ -40,6 +44,7 @@ function VoiceChat() {
     setIsListening(false);
   };
   const handleClickVoice = () => {
+    
     let login = sessionStorage.getItem('Login')
     if(login ===undefined||login==='false'||login===null) {
       window.location.href='/login'

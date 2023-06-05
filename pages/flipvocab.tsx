@@ -5,6 +5,10 @@ import axios from 'axios';
 import { dataTraCau, favourite, vocabulary } from '@/types/typechat';
 
 function SpeechToText(this: any) {
+  if (typeof window == 'undefined') {
+    return
+  }
+  
   const urlApi = process.env.URL_APP
   const [isActive, SetIsActive] = useState<boolean>(true);
   const [reset, setRest] = useState<boolean>(false);
