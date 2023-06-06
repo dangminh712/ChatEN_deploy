@@ -5,7 +5,7 @@ export default async function createMessage(
   res: NextApiResponse
 ) {
   const { messages } = req.body
-  const apiKey = "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"
+  const apiKey = process.env.VERCEL_GIT_COMMIT_MESSAGE
   const url = 'https://api.openai.com/v1/chat/completions'
 
   const body = JSON.stringify({
